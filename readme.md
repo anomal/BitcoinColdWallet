@@ -1,6 +1,6 @@
 # Bitcoin Cold Wallet
 
-##Watch wallet
+## Watch wallet
 ```
 watchwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet importaddress mmbtqLpNzDhuEwdkcgwRHwp191Kot93uEG
 watchwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet listunspent
