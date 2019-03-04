@@ -8,11 +8,11 @@ I developed this proof of concept as a part of our "crytocurrency ETF" (exchange
 1. Download open source code for generating an offline Bitcoin wallet, e.g., “Paper wallet” JavaScript code from bitaddress.org.  Have developers review the code.  This is a one-time activity.
 2. Using a USB thumb drive, copy the open source program to a newly imaged, clean computer that is not and has never been connected to the Internet.  Run the program using custom entropy as input to generate an offline, cold storage wallet consisting of a private key and bitcoin address.  The private key should never leave this computer.  If the private key is exposed, someone can steal all the bitcoins from the corresponding bitcoin wallet.
 3. Copy the bitcoin address only to a USB thumb drive and move it to a computer connected to the Internet. 
-4.  Provide the bitcoin address to the Authorized Participant (AP), who can deposit bitcoins into the CIBC bitcoin address by broadcasting the signed transaction to the nodes.  Review the public blockchain to confirm that the correct number of bitcoins have been transferred to the CIBC bitcoin address. Once this is done, deliver the Bitcoin ETF creation unit to the Authorized Participant. 
+4.  Provide the bitcoin address to the Authorized Participant (AP), who can deposit bitcoins into the bank's bitcoin address by broadcasting the signed transaction to the nodes.  Review the public blockchain to confirm that the correct number of bitcoins have been transferred to the bank's bitcoin address. Once this is done, deliver the Bitcoin ETF creation unit to the Authorized Participant. 
 
 ### Withdrawing Bitcoins from the Cold Storage Wallet
-1. Authorized Participant delivers the Bitcoin ETF creation unit to CIBC.
-2. Create an unsigned transaction to send bitcoins from the CIBC
+1. Authorized Participant delivers the Bitcoin ETF creation unit to the bank.
+2. Create an unsigned transaction to send bitcoins from the bank's
 bitcoin address to the AP's bitcoin address. You must spend almost all the bitcoins in the set, as the remainder would go to the miners as the transaction fee. Using a USB thumb drive, copy the unsigned transaction to the offline computer that has the cold storage wallet.
 3. On the offline computer with the cold storage wallet, sign the transaction using the private key.  Copy the signed transaction to the USB thumb drive and transfer it to an online computer.
 4. Broadcast the raw signed transaction to the nodes using a website for broadcasting Bitcoin transactions.
