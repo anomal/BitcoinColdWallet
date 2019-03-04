@@ -11,7 +11,7 @@ I developed this proof of concept as a part of our "crytocurrency ETF" (exchange
 
 ### Withdrawing Bitcoins from the Cold Storage Wallet
 1. Create an online watch wallet with the imported cold storage wallet address to track the wallet’s contents.
-2. The watch wallet creates a raw, unsigned transaction to send bitcoins from the cold storage wallet to the AP. (You must spend almost all the bitcoins in the set, as the remainder would go to the miners as the transaction fee.)
+2. The watch wallet creates a raw, unsigned transaction to send bitcoins from the cold storage wallet to the AP. (You must spend almost all the bitcoins in the set, as the remainder will go to the miners as the transaction fee.)
 3. Transfer the raw, unsigned transaction to an offline, air-gapped computer that has the cold storage wallet, including the private key.
 4. The offline, cold storage wallet signs the raw transaction using its private key.
 5. Online, broadcast the signed, raw transaction onto a Bitcoin transaction broadcast site.  The blockchain will execute the transaction, and the AP will receive their bitcoins.
