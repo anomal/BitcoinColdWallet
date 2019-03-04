@@ -45,9 +45,9 @@ watchwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet createrawtransact
 >     }'''
 0200000001e913588a24f2c977890ff08c7a8d13dcf4b4d1e80d844cd2a5d68270941fa3760000000000ffffffff01706f9800000000001976a914ad87660439a1a70e43b20bcaf51029c4dfddf20688ac00000000
 watchwallet@itcortex:~/.bitcoin/testnet3$ RAW_TX=0200000001e913588a24f2c977890ff08c7a8d13dcf4b4d1e80d844cd2a5d68270941fa3760000000000ffffffff01706f9800000000001976a914ad87660439a1a70e43b20bcaf51029c4dfddf20688ac00000000
-
+```
 ## Cold wallet
-
+```
 coldwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet importprivkey cNos9jFnDXWatn7TXVor1X8nJJPm7CDxxb9QnXAmHiC8kCCUsf85
 coldwallet@itcortex:~/.bitcoin/testnet3$ RAW_TX=0200000001e913588a24f2c977890ff08c7a8d13dcf4b4d1e80d844cd2a5d68270941fa3760000000000ffffffff01706f9800000000001976a914ad87660439a1a70e43b20bcaf51029c4dfddf20688ac00000000
 coldwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet signrawtransaction $RAW_TX '''
