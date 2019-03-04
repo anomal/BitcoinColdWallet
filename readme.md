@@ -3,14 +3,20 @@
 I developed this proof of concept as a part of our "crytocurrency ETF" (exchange-traded fund) hackathon project that won third place at the CIBC DisruptConstruct hackathon in 2017. A realistic cryptocurrency ETF means that the cryptocurrency is secured against network attacks by being stored in an offline or "cold storage" wallet. Below is the overview and Bitcoin Command-Line Interface (`bitcoin-cli`) implementation of how to retrieve your coins from the cold wallet, tested on the Bitcoin test network, `testnet`.
 
 ## Overview
-1. Generate private key + Bitcoin address (public key + network details) pair offline.  This is your cold storage wallet.
-2. Provide cold storage wallet address to the Authorized Participant (AP).
-3. AP sends bitcoins to the cold storage wallet address by executing the transaction on the blockchain.  The cold storage wallet does not need to be connected to the blockchain for it to receive bitcoins, because the public ledger keeps track of each bitcoin’s owner.
-4. Create an online watch wallet with the imported cold storage wallet address to track the wallet’s contents.
-5. The watch wallet creates a raw, unsigned transaction to send bitcoins from the cold storage wallet to the AP.
-6. Transfer the raw, unsigned transaction to an offline, air-gapped computer that has the cold storage wallet, including the private key.
-7. The offline, cold storage wallet signs the raw transaction using its private key.
-8. Online, broadcast the signed, raw transaction onto a Bitcoin transaction broadcast site.  The blockchain will execute the transaction, and the AP will receive their bitcoins.
+
+### Receiving Bitcoins from the AP into a Cold Storage Wallet
+1. Download open source code for generating an offline Bitcoin wallet, e.g., “Paper wallet” JavaScript code from bitaddress.org.  Have developers review the code.  This is a one-time activity.
+2. Using a USB thumb drive, copy the open source program to a newly imaged, clean computer that is not and has never been connected to the Internet.  Run the program using custom entropy as input to generate an offline, cold storage wallet consisting of a private key and bitcoin address.  The private key should never leave this computer.  If the private key is exposed, someone can steal all the bitcoins from the corresponding bitcoin wallet.
+3. Copy the bitcoin address only to a USB thumb drive and move it to a computer connected to the Internet. 
+4.  Provide the bitcoin address to the Authorized Participant (AP), who can deposit bitcoins into the CIBC bitcoin address by broadcasting the signed transaction to the nodes.  Review the public blockchain to confirm that the correct number of bitcoins have been transferred to the CIBC bitcoin address. Once this is done, deliver the Bitcoin ETF creation unit to the Authorized Participant. 
+
+### Withdrawing Bitcoins from the Cold Storage Wallet
+1. Authorized Participant delivers the Bitcoin ETF creation unit to CIBC.
+2. Create an unsigned transaction to send bitcoins from the CIBC
+bitcoin address to the AP's bitcoin address. You must spend almost all the bitcoins in the set, as the remainder would go to the miners as the transaction fee. Using a USB thumb drive, copy the unsigned transaction to the offline computer that has the cold storage wallet.
+3. On the offline computer with the cold storage wallet, sign the transaction using the private key.  Copy the signed transaction to the USB thumb drive and transfer it to an online computer.
+4. Broadcast the raw signed transaction to the nodes using a website for broadcasting Bitcoin transactions.
+5. Wait for the transaction to be mined, and confirm it by viewing the public Bitcoin blockchain.
 
 ## bitcoin-cli implementation
 ### Watch wallet
