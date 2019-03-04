@@ -1,5 +1,18 @@
 # Bitcoin Cold Wallet
 
+This proof of concept is part of our "crytocurrency ETF" (exchange-traded fund) hackathon project that won third place at the CIBC DisruptConstruct hackathon in 2017. A realistic cryptocurrency ETF means that the cryptocurrency is secured against network attacks by being stored in an offline or "cold storage" wallet. Below is the overview and Bitcoin Command-Line Interface (`bitcoin-cli`) implementation of how to retrieve your coins from the cold wallet, tested on the Bitcoin test network, `testnet`.
+
+## Overview
+1. Generate private key + Bitcoin address (public key + network details) pair offline.  This is your cold storage wallet.
+2. Provide cold storage wallet address to the Authorized Participant (AP).
+3. AP sends bitcoins to the cold storage wallet address by executing the transaction on the blockchain.  The cold storage wallet does not need to be connected to the blockchain for it to receive bitcoins, because the public ledger keeps track of each bitcoin’s owner.
+4. Create an online watch wallet with the imported cold storage wallet address to track the wallet’s contents.
+5. The watch wallet creates a raw, unsigned transaction to send bitcoins from the cold storage wallet to the AP.
+6. Transfer the raw, unsigned transaction to an offline, air-gapped computer that has the cold storage wallet, including the private key.
+7. The offline, cold storage wallet signs the raw transaction using its private key.
+8. Online, broadcast the signed, raw transaction onto a Bitcoin transaction broadcast site.  The blockchain will execute the transaction, and the AP will receive their bitcoins.
+
+
 ## Watch wallet
 ```
 watchwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet importaddress mmbtqLpNzDhuEwdkcgwRHwp191Kot93uEG
