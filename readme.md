@@ -12,8 +12,10 @@ This proof of concept is part of our "crytocurrency ETF" (exchange-traded fund) 
 7. The offline, cold storage wallet signs the raw transaction using its private key.
 8. Online, broadcast the signed, raw transaction onto a Bitcoin transaction broadcast site.  The blockchain will execute the transaction, and the AP will receive their bitcoins.
 
+## bitcoin-cli implementation
+### Watch wallet
 
-## Watch wallet
+Online, import the Bitcoin address of the cold wallet, view its unspent coins, and create a raw, unsigned transaction on behalf of the cold wallet to send the coins to the new address.
 ```
 watchwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet importaddress mmbtqLpNzDhuEwdkcgwRHwp191Kot93uEG
 watchwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet listunspent
@@ -59,7 +61,9 @@ watchwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet createrawtransact
 0200000001e913588a24f2c977890ff08c7a8d13dcf4b4d1e80d844cd2a5d68270941fa3760000000000ffffffff01706f9800000000001976a914ad87660439a1a70e43b20bcaf51029c4dfddf20688ac00000000
 watchwallet@itcortex:~/.bitcoin/testnet3$ RAW_TX=0200000001e913588a24f2c977890ff08c7a8d13dcf4b4d1e80d844cd2a5d68270941fa3760000000000ffffffff01706f9800000000001976a914ad87660439a1a70e43b20bcaf51029c4dfddf20688ac00000000
 ```
-## Cold wallet
+### Cold wallet
+
+Offline, import the private key of your cold wallet and sign the raw transaction you created from the watch wallet.
 ```
 coldwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet importprivkey cNos9jFnDXWatn7TXVor1X8nJJPm7CDxxb9QnXAmHiC8kCCUsf85
 coldwallet@itcortex:~/.bitcoin/testnet3$ RAW_TX=0200000001e913588a24f2c977890ff08c7a8d13dcf4b4d1e80d844cd2a5d68270941fa3760000000000ffffffff01706f9800000000001976a914ad87660439a1a70e43b20bcaf51029c4dfddf20688ac00000000
@@ -77,3 +81,6 @@ coldwallet@itcortex:~/.bitcoin/testnet3$ bitcoin-cli -testnet signrawtransaction
 }
 coldwallet@itcortex:~/.bitcoin/testnet3$ 
 ```
+### Broadcast signed transaction
+
+Broadcast your signed transaction on the blockchain by posting it on public Bitcoin transaction site like blockcypher.com.
