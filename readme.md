@@ -1,6 +1,6 @@
 # Bitcoin Cold Wallet
 
-I developed this proof of concept as a part of our "cryptocurrency ETF" (exchange-traded fund) hackathon project that won third place at the CIBC DisruptConstruct hackathon in 2017. A realistic cryptocurrency ETF means that the cryptocurrency is secured against network attacks by being stored in an offline or "cold storage" wallet. Below is the overview and Bitcoin Command-Line Interface (`bitcoin-cli`) implementation of how to retrieve your coins from the cold wallet, tested on the Bitcoin test network, `testnet`.
+I developed this proof of concept as a part of our "cryptocurrency ETF" (exchange-traded fund) hackathon project that won third place at the Canadian Imperial Bank of Commerce (CIBC) DisruptConstruct hackathon in 2017. A realistic cryptocurrency ETF means that the cryptocurrency is secured against network attacks by being stored in an offline or "cold storage" wallet. Below is the overview and Bitcoin Command-Line Interface (`bitcoin-cli`) implementation of how to retrieve your coins from the cold wallet, tested on the Bitcoin test network, `testnet`.
 
 ## Overview
 
